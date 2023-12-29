@@ -1,0 +1,81 @@
+<!Doctype html>
+
+<head>
+
+    <%- include('../common/cdn') %>
+        <title>Mangage Vdi Team</title>
+        <link rel="stylesheet" href="/css/managevdigroup_teaminfo.css">
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/footer.css">
+
+</head>
+
+<body class="body_background_color">
+
+    <%- include('../common/header') %>
+
+        <div class="userGroupTable container" id="maindiv">
+            <div class="tableClass">
+                <h3 class="text-center tableHeading">Members List - <%=groupName%>
+                </h3>
+
+                <%if(members.length==0){%>
+                    <h3>No members here in this group</h3>
+                    <%} else{%>
+                        <form action="/managevdigroup/downloadCsv/<%=groupName%>" method="get"><button
+                                class="btn btn-primary">Export Members</button>
+                        </form>
+                        <table class="table align-middle mb-0 bg-white">
+                            <thead>
+                                <tr>
+                                    <th class="name_attribute">S.No.</th>
+                                    <th class="name_attribute">Name</th>
+                                    <th class="team_attribute">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%for(i=0;i<members.length;i++){%>
+                                    <tr>
+                                        <td>
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1 sno">
+                                                    <%=i+1%> .
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">
+                                                    <%=members[i].Name%>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <form action="/managevdigroup/memberinfo %>" method="post">
+                                                <button type="submit" class="badge rounded-pill d-inline infoButton"
+                                                    name="memberName" value="<%= members[i].Name%>">
+                                                    <p class="fw-normal fw-bold  mb-1">View Details</p>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                            </tbody>
+                        </table>
+                        <%}%>
+            </div>
+        </div>
+
+
+        <!-- <script src="/js/table.js"></script> -->
+        <%- include('../common/fscript') %>
+            <!-- html closed here -->
+                <div class="footer_padding_forced">
+                    <%- include('../common/footer') %>
+                </div>
+                    
+
+</body>
+
+</html>

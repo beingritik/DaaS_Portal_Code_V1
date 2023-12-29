@@ -1,0 +1,72 @@
+<!Doctype html>
+
+<head>
+
+    <%- include('../common/cdn') %>
+        <title>My team Info</title>
+        <link rel="stylesheet" href="/css/myteaminfo.css">
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/footer.css">
+
+</head>
+
+<body class="body_background_color">
+    <%- include('../common/header') %>
+        <div class="userGroupTable container" id="maindiv">
+            <div class="tableClass">
+                <h3 class="text-center tableHeading">My Team Members </h3>
+                <%if(users.length==0){%>
+                    <h3>No members under you.</h3>
+                    <%} else{%>
+                        <form action="/myteaminfo/downloadCsvall" method="get"><button class="btn btn-primary">Export
+                                Members</button>
+                        </form>
+                        <table class="table align-middle mb-0 bg-white">
+                            <thead>
+                                <tr>
+                                    <th class="name_attribute">S.No.</th>
+                                    <th class="name_attribute">Name</th>
+                                    <th class="team_attribute">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <%for(i=0;i<users.length;i++){%>
+                                    <tr>
+                                        <td>
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1 sno">
+                                                    <%=i+1%> .
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="ms-3">
+                                                <p class="fw-bold mb-1">
+                                                    <%=users[i].Name%>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <form action="/myteaminfo/teammemberinfo %>" method="post">
+                                                <button type="submit" class="badge rounded-pill d-inline infoButton"
+                                                    name="memberName" value="<%= users[i].Name%>">
+                                                    <p class="fw-normal fw-bold  mb-1">View Details</p>
+                                                </button>
+                                            </form>
+                                        </td>
+                                    </tr>
+                                    <%}%>
+                            </tbody>
+                        </table>
+                        <%}%>
+            </div>
+        </div>
+        <!-- html closed here -->
+        <div class="footer_padding_forced">
+            <%- include('../common/footer') %>
+        </div>
+        <%- include('../common/fscript') %>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!Doctype html>
+<head>
+    <%- include('../common/cdn') %>
+        <title>Manage Vdi</title>
+        <link rel="stylesheet" href="/css/managevdigroup.css">
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body class="body_background_color">
+    <%- include('../common/header') %>
+        <div class="userGroupTable container" id="maindiv">
+            <div class="tableClass">
+                <h3 class="text-center tableHeading">UserGroups Table</h3>
+                <table class="table table-hover align-middle mb-0 bg-white">
+                    <thead>
+                        <tr>
+                            <th class="name_attribute">Group Name</th>
+                            <th class="team_attribute">Team Info</th>
+                            <th class="assign_attribute">Assign VDI</th>
+                            <th class="revoke_attribute">Revoke VDI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%for(i=0;i<userGroup.length;i++){%>
+                            <tr>
+                                <td>
+                                    <div class="ms-3">
+                                        <p class="fw-bold mb-1">
+                                            <%=userGroup[i]%>
+                                        </p>
+                                    </div>
+                                </td>
+                                <td>
+                                    <form action="/managevdigroup/<%= userGroup[i] %>" method="get">
+                                        
+                                        <button class="badge rounded-pill d-inline infoButton">
+                                            <p class="fw-normal fw-bold  mb-1">Team Info</p>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/managevdigroup/addUser/<%= userGroup[i] %>" method="get">
+                                        <button class="badge rounded-pill d-inline assignButton ms-3">
+                                            <span class="fw-normal fw-bold mb-1">Assign</span>
+                                        </button>
+                                    </form>
+                                </td>
+                                <td>
+                                    <form action="/managevdigroup/revokeUser/<%= userGroup[i] %>" method="get">
+                                        <button class="badge rounded-pill d-inline revokeButton ms-3">
+                                            <span class="fw-normal fw-bold mb-1">Revoke</span>
+                                        </button>
+                                    </form>
+                                </td>
+                            </tr>
+                            <%}%>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="footer_padding">
+            <%- include('../common/footer') %>
+        </div>
+            <%- include('../common/fscript') %>
+                <!-- html closed here -->
+</body>
+
+</html>

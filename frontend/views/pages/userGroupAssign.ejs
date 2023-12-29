@@ -1,0 +1,97 @@
+<!Doctype html>
+
+<head>
+
+    <%- include('../common/cdn') %>
+        <title>Assign User Page</title>
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/userGroupAssign.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/footer.css">
+
+</head>
+
+<body class="body_background_color">
+    <%- include('../common/header') %>
+        <div class="userGroupForm container">
+
+
+            <div class="formClass shadow">
+
+                <form action="/api" name="userGroupForm" method="post" onsubmit="return validation()">
+                    <h3>Assign User to the Usergroup</h3>
+                    <select id="usernameField" name="username" class="selectpicker" data-live-search="true"
+                        class="select-menu">
+                        <option data-tokens="ketchup mustard" value="" class="btn-text" selected disabled>Enter Username
+                        </option>
+                        <% for(i=0;i<userNameArray.length;i++){%>
+                            <%= userNameArray[i] %>
+                                <option data-tokens="<%= userNameArray[i] %>" value="<%= userNameArray[i] %>"
+                                    class="btn-text">
+                                    <%= userNameArray[i]%>
+                                </option>
+
+                                <%}%>
+                    </select>
+                    <span id="username" class="text-danger font-weight-bold"></span>
+
+                    <select name="userGroup" id="userGroupField" class="selectpicker" data-live-search="true"
+                        class="select-menu">
+                        <option data-tokens="ketchup mustard" value="" class="btn-text" selected disabled>Enter
+                            UserGroup</option>
+                        <% for(i=0;i<userGroupArray.length;i++){%>
+                            <option data-tokens="<%= userGroupArray[i]%>" value="<%= userGroupArray[i]%>"
+                                class="btn-text">
+                                <%= userGroupArray[i]%>
+                            </option>
+
+                            <%}%>
+                    </select>
+                    <span id="userGroup" class="text-danger font-weight-bold"></span>
+
+                    <select name="role" id="userRole">
+                        <option value="" selected disabled>Role</option>
+                        <option value="admin">Admin</option>
+                        <option value="manager">Manager</option>
+                        <option value="user">User</option>
+                    </select>
+                    <span id="role" class="text-danger font-weight-bold"></span>
+                    <% if (warn==3) { %>
+                        <div class="alert alert-warning" role="alert">
+                            UserGroup Already exist for user
+                        </div>
+                        <% } %>
+
+                            <% if (warn==1) { %>
+                                <div class="alert alert-info" role="alert">
+                                    Submitted sucessfully
+                                </div>
+                                <% } %>
+                                    <div class="text-center">
+                                        <button type="submit" class="submitButton next" value="saveData">Submit</button>
+                                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="container">
+            <div calss="col-lg-8 col-sm-8" id="logs">
+                <div class="logs">
+                    <h5> The Admin logs are : </h5>
+                        <% for(i=0;i<fetched_logs.length;i++){ %>
+                            <div>The <%= fetched_logs[i].user%>
+                                    <%= fetched_logs[i].action%> by <%= fetched_logs[i].by_user%> to the <%=
+                                                fetched_logs[i].userGroup%> at <%=fetched_logs[i].date_time%>
+                            </div>
+                            <%}%>
+                                </span>
+                                <br>
+                </div>
+            </div>
+        </div>
+        <a href="/logs">View More</a>
+        <br>
+
+        <script src="/js/userGroup.js"></script>
+        <%- include('../common/fscript') %>
+            <%- include('../common/footer') %>

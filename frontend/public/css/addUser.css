@@ -1,0 +1,201 @@
+
+.addUser_maindiv{
+    text-align:center;
+}
+
+.addUser_heading{
+    font-size:22px;
+    font-weight:1000;
+}
+
+.form_position{
+    margin-top: 51px;
+    margin-left: 22px;
+}
+   
+.form_submit_button{
+    background-color:#126BAF;
+    color:white;
+    font: weight 1000px;
+    font-size:18px;
+        margin-bottom: 15.2px;
+        margin-left: 10px;
+}
+.form_submit_button:hover{
+    background-color:sienna;
+    color:#fff;
+    font: weight 1000px;
+    font-size:18px;
+    transition:0.2s;
+}
+.bootstrap-select .btn {
+    background-color: white;
+    border-style: solid;
+    border: 3px black;
+    color: black;
+
+}
+
+/* input field css */
+
+input[type="text"] {
+    width: 100%;
+    padding: 15px 10px;
+    border: none;
+    outline: none;
+    border-radius: 5px 5px 0 0;
+    background-color: white;
+    font-size: 16px;
+
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+  }
+.list {
+  width: 100%;
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 100;
+
+}
+.list-items {
+  padding: 10px 5px;
+}
+.list-items:hover {
+  background-color: #dddddd;
+}
+
+
+.list li{
+  border:0.3px solid #000; 
+}
+
+.listGroup li{
+  border:0.3px solid #000; 
+}
+
+
+.input {
+  border-radius: 12px;
+  
+}
+
+.shadow {
+  box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+  padding: 5%;
+}
+
+/* 
+.userGroupForm{
+  height: 500px;
+} */
+
+.formClass{
+  width: 50%;
+  margin: auto;
+  /* top: 15%; */
+  position: relative;
+  margin-top: 9%;
+}
+
+.submitButton{
+  background-color: #24a0ed;
+  color: white;
+  
+  padding: 1.5%;
+  border-radius: 10px;    
+  border-color: white;
+
+}
+.submitButton:hover{
+  background-color: #1c5998;
+  transition: all 0.3s ease-in-out;
+}
+
+@media (max-width: 800px) {
+  .formClass{
+    height: 70%;
+    width: 80%;
+    margin: auto;
+    /* top: 15%; */
+    position: relative;
+    margin-top: 15%;
+  }
+  button {
+  height: auto;
+  width: auto;
+  }
+  }
+
+
+  .bootstrap-select {
+    max-width: 1000px;
+  }
+  .bootstrap-select .btn {
+    background-color: white;
+    border-style: solid;
+    border: 3px black;
+    color: white;
+
+    font-weight: 200;
+    padding: 12px 12px;
+    font-size: 16px;
+    margin-bottom: 15px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  .bootstrap-select .dropdown-menu {
+    margin: 15px 0 0;
+    color: white;
+  }
+  select::-ms-expand {
+    /* for IE 11 */
+    display: none;
+  }
+
+  .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+    width: 100%;
+}
+
+@media (min-width: 768px){
+  .show {
+      width: 100%;
+  }
+
+}
+.filter-option-inner-inner{
+  color: black;
+}
+#userRole{
+  width: 100%;
+    height: 40px;
+    border: none;
+    padding: 10px;
+    margin-bottom: 30px;
+}
+
+.add_success{
+  color:green;
+  font-weight:700;
+  font-size:18px;
+}
+.ferror{
+  color:red;
+  font-weight:700;
+}
+
+.logs_color{
+  color: #026202;
+  font-weight: 700;
+}
+
+.logs{
+  margin-top:60px;
+  border:1px solid black;
+  max-height:120px;
+  overflow:scroll;
+}

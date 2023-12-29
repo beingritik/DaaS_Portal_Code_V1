@@ -1,0 +1,138 @@
+<!Doctype html>
+
+<head>
+    <%- include('../common/cdn') %>
+    <title>Manage VDI Member Info</title>
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/managevdigroup_memberinfo.css">
+        <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+    <%- include('../common/header') %>
+        <div class="container rounded bg-white mt-5 mb-5" id="maindiv">
+            <div class="row">
+                <div class="col-md-4 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                            class="rounded-circle mt-5" width="150px" src="/images/teams.png"><span
+                            class="font-weight-bold">
+                            <% if(memberinfo.cn){ %>
+                                <td>
+                                    <%= memberinfo.cn %>
+                                </td>
+                                <% }else {%>
+                                    <td>Not found</td>
+                                    <% } %>
+                        </span><span class="text-black-50"></span><span>
+                            <% if(memberinfo.mail){ %>
+                                <td>
+                                    <%= memberinfo.mail %>
+                                </td>
+                                <% }else {%>
+                                    <td>Not found</td>
+                                    <% } %>
+                        </span></div>
+                </div>
+
+                <div class="col-md-8 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">Profile Card</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <table>
+
+                                <tr>
+                                    <th scope="row" class="sno_padding">S.No.</th>
+                                    <th class="attribute_padding">Attributes</th>
+                                    <th class="info_padding">Information</th>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row" class="sno_padding-2">1.</th>
+                                    <th>Display Name</th>
+                                    <% if(memberinfo.cn){ %>
+                                        <td>
+                                            <%= memberinfo.cn %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row" class="sno_padding-2">2.</th>
+
+                                    <th>Telephone Number</th>
+                                    <% if(memberinfo.telephoneNumber){ %>
+                                        <td>
+                                            <%= memberinfo.telephoneNumber %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row" class="sno_padding-2">3.</th>
+
+                                    <th>Login user Name</th>
+                                    <% if(memberinfo.sAMAccountName){ %>
+                                        <td>
+                                            <%= memberinfo.sAMAccountName %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row" class="sno_padding-2">4.</th>
+
+                                    <th>AD user Principal Name</th>
+                                    <% if(memberinfo.userPrincipalName){ %>
+                                        <td>
+                                            <%= memberinfo.userPrincipalName %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row" class="sno_padding-2">5.</th>
+                                    <th>Mail</th>
+                                    <% if(memberinfo.mail){ %>
+                                        <td>
+                                            <%= memberinfo.mail %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row" class="sno_padding-2">6.</th>
+                                    <th>Last Login</th>
+                                    <% if(memberLogon){ %>
+                                        <td>
+                                            <%= memberLogon %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>not found</td>
+                                            <% } %>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../common/footer') %>
+
+            <%- include('../common/fscript') %>
+</body>
+
+</html>

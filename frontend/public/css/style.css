@@ -1,0 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@300&display=swap');
+/* Here I include 'Catamaran' as font for the whole project */
+.body_background_color{
+    background-color:#F6F8FA;
+    font-family:'Catamaran';   
+}
+
+

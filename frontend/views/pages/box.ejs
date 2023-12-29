@@ -1,0 +1,124 @@
+<div class="container" id="maindiv">
+    <div class="row_modification">
+        <div class="row p1">
+
+            <div class="col-md-4 box_small box_large col-lg-2 cursor_pointer">
+                <a href= "/" onclick="location.href='http://10.2.12.90:8787/Orion/Login.aspx?AccountID=ritikj@lntdccspoc.com&Password=pass@123'" target="_blank">
+                    <div class="main_box text-center">
+                        <img src="/images/solarwinds_logo.jpg" class="img-fluid" alt="Solarwinds monitoring tool">
+                        <span class="box_item_name">Solarwinds Tool</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 box_small box_large col-lg-2">
+                <a href="https://10.2.8.26" target="_blank">
+                    <div class="main_box text-center">
+                        <img src="/images/33.jpg" class="img-fluid" alt="Accops tool">
+                        <span class="box_item_name">Accops VDI</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 box_small box_large col-lg-2">
+                <a href="https://podcbvdc01.lntdccspoc.com/provider" target="_blank">
+                    <div class="main_box text-center">
+                        <img src="/images/sciencelogic_logo.jpg" class="img-fluid" alt="Sciencelogioc monitoring tool">
+                        <span class="box_item_name">Sciencelogic Tool</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 box_small box_large col-lg-2">
+                <a href="https://myvdi.lntdccs.com" target="_blank">
+                    <div class="main_box text-center">
+                        <img src="/images/citrix.png" class="img-fluid" alt="Citrix tool">
+                        <span class="box_item_name">Citrix Workspace</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 box_small box_large col-lg-2">
+                <a href="https://podcbvdc01.lntdccspoc.com/provider" target="_blank">
+                    <div class="main_box text-center">
+                        <img src="/images/vmware.jpg" class="img-fluid" alt="Vmware tool">
+                        <span class="box_item_name">VmWare</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 box_small box_large col-lg-2">
+                <a href="https://larsentoubro.service-now.com  " target="_blank">
+                    <div class="main_box text-center">
+                        <img src="/images/servicenow.png" class="img-fluid"><br>
+                        <span class="box_item_name">ServiceNow</span>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col-md-4 box_small box_large col-lg-2">
+                <a href="https://cxilabs.symphonysummitai.com/poc-ltpoc/Summit_WebLogin.aspx#!" target="_blank">
+                    <div class="main_box text-center">
+                        <img src="/images/symphony.jpg" class="img-fluid "><br>
+                        <span class="box_item_name">Summit AI</span>
+                    </div>
+                </a>
+            </div>
+
+
+            <% if (role=="manager" || role=='admin' ) { %>
+                <div class="col-md-4 box_small box_large col-lg-2">
+                    <a href="/managevdigroup">
+                        <div class="main_box text-center">
+                            <img src="/svg/manage_vdi_access.svg" class="img-fluid box_feather_icon"><br>
+                            <span class="box_item_name">Manage VDI Access</span>
+                        </div>
+                    </a>
+                </div>
+            <% } %>
+                    <div class="col-md-4 box_small box_large col-lg-2">
+                        <div class="main_box text-center">
+                            <form action="/myteaminfo" method="post">
+                                <input type="image" class="img-fluid box_img" src="/svg/myteaminfo.svg"><br>
+                                <span class="box_item_name"> <button type="submit"
+                                        class="btn stat-cards-info__num box_button" name="userName" value=``>
+                                        My Team Info</button>
+                                </span>
+                                
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 box_small box_large col-lg-2">
+                        <div class="main_box text-center">
+                            <form action="/myinfo" method="post">
+                                <input type="image" class="img-fluid box_img" src="/svg/myinfo.svg"><br>
+                                <span class="box_item_name"> <button type="submit"
+                                        class="btn stat-cards-info__num box_button" name="userName" value=``>My
+                                        Info</button>
+                                </span>
+                            </form>
+                        </div>
+                    </div>
+                    <% if (role=='admin' ) { %>
+                        <div class="col-md-4 box_small box_large col-lg-2">
+                            <a href="/admin-dashboard">
+                                <div class="main_box text-center">
+                                    <img src="/images/33.jpg" class="img-fluid" alt="Admin panel">
+                                    <span class="box_item_name">Admin Dashboard</span>
+                                </div>
+                            </a>
+                        </div>
+                        <% } %>
+                            <div class="col-md-4 box_small box_large col-lg-2">
+                                <a href="/logs">
+                                    <div class="main_box text-center">
+                                        <img src="/svg/contact.svg" class="img-fluid box_feather_icon"><br>
+                                        <span class="box_item_name">Logs</span>
+                                    </div>
+                                </a>
+                            </div>
+        </div>
+
+    </div>
+</div>

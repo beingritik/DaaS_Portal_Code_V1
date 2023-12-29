@@ -1,0 +1,75 @@
+<!Doctype html>
+
+<head>
+    <%- include('../common/cdn') %>
+        <title>Delete user</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/footer.css">
+        <link rel="stylesheet" href="/css/revokeUser.css">
+</head>
+
+<body class="body_background_color">
+    <%- include('../common/header') %>
+        <div class="userGroupForm container" id="maindiv">
+            
+            <div class="formClass shadow">
+                <% if (bool == 1) { %>
+                    <div class="alert alert-danger" role="alert">
+                    Revoked Sucessfully
+                    </div>
+                <% } %>
+ 
+                <% if (bool == 0) { %>
+
+                <div class="alert alert-warning" role="alert">
+                    Error Occured!! Contact to Admin.
+                  </div>
+                <% } %>
+                
+                <h3> Users to be deleted here</h3>
+
+                <form method="post" action="/managevdigroup/revokeUser/<%= userGroup %>" name = "deleteForm" onsubmit="return validate()" >
+                    <select name="usernameToDelete" id="usernameToDelete" class="selectpicker" data-live-search="true"
+                        class="select-menu">
+                        <option data-tokens="" value="" class="btn-text" selected disabled>Enter Username</option>
+                        <% for(i=0;i<users.length;i++){%>
+                            <%= users[i] %>
+                                <option data-tokens="<%= users[i] %>" value="<%= users[i] %>" class="btn-text">
+                                    <%= users[i]%>
+                                </option>
+                                <%}%>
+                    </select>
+                    <span id = "username" class="text-danger font-weight-bold"></span>
+                    <br><button type="submit" onclick="return confirm('Are you sure you want to Revoke Access?');"
+                        class="next btn btn-danger">Revoke VDI</button>
+                </form>
+            </div>
+        </div>
+        <div class="container">
+            <div calss="col-lg-8 col-sm-8" id="logs">
+                <div class="logs">
+                    <h5 class="logs_heading"> The logs for creation are : </h5>
+                    <%if(revoked_users){%>
+                        <% for(i=0;i<revoked_users.length;i++){ %>
+                            <span class="logs_color">   <%= i+1%>  . The <%=revoked_users[i].deleted_user%> assigned by
+                            <%=revoked_users[i].perform_delete_by_user%> to the
+                            <%=revoked_users[i].delete_from_userGroup%> at
+                            <%=revoked_users[i].date_time_of_delete%> .
+                            </span>
+                            <br>
+                            <%}%>
+                            <%}%>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="/js/revoke.js"></script>
+        <%- include('../common/footer') %>
+
+        </body>
+
+
+
+</html>

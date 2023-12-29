@@ -1,0 +1,102 @@
+<!-- used for temporary purpose but most important -->
+<!Doctype html>
+
+<head>
+    <%- include('../common/cdn') %>
+        <title>Admin Table</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+    <%- include('../common/header') %>
+        <% if(delete_user_bool == 1){ %>
+            <div class="alert alert-danger" role="alert">
+                deleted Sucessfully
+            </div>
+        <% } %>
+
+        <% if (delete_userGroup_bool == 1) {%>
+            <div class="alert alert-danger" role="alert">
+                User Group deleted Sucessfully
+            </div>
+        <% } %>
+        <table class="table align-middle mb-0 bg-white">
+            <thead>
+                <tr>
+                    <th class="name_attribute">S.No.</th>
+                    <th class="name_attribute">Username</th>
+                    <th class="team_attribute">Usergroups</th>
+                    <th class="team_attribute">Role</th>
+                    <th class="team_attribute">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <%for(i=0;i<data.length;i++){%>
+                    <tr>
+                        <td>
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1 sno">
+                                    <%=i+1%> .
+                                </p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">
+                                    <%=((data[i].username).charAt(0).toUpperCase()) + (data[i].username.slice(1))%>
+                                </p>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ms-3">
+                               
+                                <% if (data[i].userGroup.length == 0) { %>
+                                    <p class="fw-bold mb-1">No User Member exist</p>
+                                <% } else {%>
+                                <%for(j=0;j<data[i].userGroup.length;j++){%>
+                                    <form method="post" action="/adminTable/delete_user_group">
+                                        <input type="hidden" name = "delete_operation_on_username"value="<%= data[i].username %>">
+                                        <input type="hidden" name = "userGroup_to_delete"value="<%= data[i].userGroup[j] %>">
+                                        <p class="fw-bold mb-1">
+                                            <%= j+1 %> .    <%=data[i].userGroup[j]%>
+                                            <button type="submit" class="badge d-inline infoButton"
+                                                onclick="return confirm('Are you sure you want to delete %> ?')" style="color:red; font-size:16px;">
+                                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                            </button>
+                                            
+                                        </p>
+                                    </form>
+                                <%}%>
+                                <%}%>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="ms-3">
+                                <p class="fw-bold mb-1">
+                                    <%=((data[i].role).charAt(0).toUpperCase()) + (data[i].role.slice(1))%>
+                                </p>
+                            </div>
+                        </td>
+                        <td>
+                            <form action="/adminTable/delete_user/<%= data[i].username %>" method="post">
+                                 <button type="submit" class="badged-inline infoButton" name="username"
+                                    onclick="return confirm('Are you sure you want to delete <%= data[i].username %> ?');"
+                                    value="<%= data[i].username%>" style="color:red;">
+                                    <p class="fw-normal fw-bold  mb-1">Delete User</p>
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+            </tbody>
+        </table>
+
+
+        <%- include('../common/footer') %>
+
+</body>
+
+</html>

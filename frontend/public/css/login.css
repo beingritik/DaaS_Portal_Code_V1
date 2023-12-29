@@ -1,0 +1,78 @@
+.divider:after,
+.divider:before {
+flex: 1;
+height: 1px;
+background: #eee;
+}
+.h-custom {
+height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+.h-custom {
+height: 100%;
+}
+}
+.login{
+    padding: 8%;
+
+}
+.login h2 {
+    color : #1c5998;
+}
+
+div .imgheading img{
+    height: 40px;
+    display: inline;
+}
+div .imgheading h1{
+    display: inline;
+}
+
+.imgheading .col-2 {
+    flex: 0 0 auto;
+    width: 12.666667%;
+}
+.loginButton{
+    background-color: #126baf;
+    color: white;
+    width: 20%;
+    padding: 1.5%;
+    border-radius: 10px;    
+    border-color: white;
+
+}
+.loginButton:hover{
+    background-color: #1c5998;
+    transition: all 0.3s ease-in-out;
+}
+
+.formClass{
+    margin-top: 10%;
+}
+
+
+.shadow {
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    padding: 5%;
+}
+.formClass input{
+    border-radius: 12px;
+  border: 3;
+  box-sizing: border-box;
+}
+
+
+@media (max-width : 400px){
+    .loginButton{
+        width: auto;
+        height: auto;
+    }
+    .imgheading{
+        font-size: 20px;
+    }
+}
+
+.ferror{
+    color:red;
+    font-weight:700;
+}

@@ -1,0 +1,76 @@
+.footer{
+    margin-top:212px;
+    border-top:0.5px double sienna;
+    background-color:#F6F8FA;
+    color:black!important; 
+    margin-right:22px;
+}
+
+.footer_list{
+    display: flex;
+    list-style: outside none none;
+}
+
+.footer_list_icon{
+    padding-left:16px;
+    color:#126BAF;
+    text-decoration: none;
+    font-weight:bold;
+    font-size:18px;
+}
+.footer_list_icon_home{
+    color:#126BAF;
+    text-decoration: none;
+    font-weight:bold;
+    font-size:18px;
+}
+.footer_list_icon:hover,.footer_list_icon_home:hover{
+    color:#F7A708;
+    text-decoration: none;
+}
+
+.copyright_icon{
+    font-size:12px!important;
+    color:black;
+}
+
+.portal_info{
+    font-size:15px;
+    color:black;
+}
+
+.team_brand_size{
+    font-size:13px;
+    color:grey;
+}
+
+.footer_sizing{
+margin-left:-30px;
+}
+
+@media only screen and (min-width:1200px){
+    .footer{
+        margin-top:255px;
+        border-top:0.5px double sienna;
+        background-color:#F6F8FA;
+        color:sienna!important; 
+    }
+}
+
+@media only screen and (max-width:580px){
+    .footer{
+        margin-top:155px;
+        border-top:0.5px double sienna;
+        background-color:#F6F8FA;
+        color:black!important; 
+    }
+}
+
+@media only screen and (max-width:483px){
+    .footer{
+        margin-top:140px;
+        border-top:0.5px double sienna;
+        background-color:#F6F8FA;
+        color:sienna!important; 
+    }
+}

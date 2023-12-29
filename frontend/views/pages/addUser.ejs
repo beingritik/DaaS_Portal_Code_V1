@@ -1,0 +1,76 @@
+<!Doctype html>
+
+<head>
+    <%- include('../common/cdn') %>
+        <title>Add user</title>
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/addUser.css">
+        <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body class="body_background_color">
+    <%- include('../common/header') %>
+        <div class="userGroupForm container" id="maindiv">
+            <div class="formClass shadow">
+                <div id="maindiv" class="maindiv">
+                    <span class="addUser_heading">User added to <%=groupName%> Group
+                    </span>
+                    <%if(message){%>
+                        <h4 class="add_success">
+                            <%=message%>
+                        </h4>
+                        <%}%>
+                            <div id="adduser">
+                                <span class="ferror"></span>
+                                <form method="post" name="addUserform"
+                                    action="/managevdigroup/addUser/<%=groupName%>/added"
+                                    onsubmit="return validateForm()">
+                                    <input type="hidden" name="usergroupName" value="<%=groupName%>">
+                                    <select name="selectuserName" class="selectpicker" data-live-search="true"
+                                        class="select-menu">
+                                        <option data-tokens="" value="" class="btn-text" selected disabled
+                                            onsubmit="return validateSelectField()">
+                                            Enter Username
+                                        </option>
+                                        <% for(i=0;i<availableUsers.length;i++){%>
+                                            <option data-tokens="<%= availableUsers[i]%>"
+                                                value="<%= availableUsers[i]%>" class="btn-text">
+                                                <%= availableUsers[i]%>
+                                            </option>
+                                            <%}%>
+                                    </select>
+
+                                    <button type="submit" name="assignbtn"
+                                        onclick="return confirm('Are you sure you want to Add?');"
+                                        class="btn btn-primary">Assign</button>
+                                </form>
+                            </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div calss="col-lg-8 col-sm-8" id="logs">
+                <div class="logs">
+                    <h5 class="logs_heading"> The logs for creation are : </h5>
+                    <%if(fetched_logs){%>
+                        <% for(i=0;i<fetched_logs.length;i++){ %>
+                            <span class="logs_color">   <%= i+1%>  . The <%=fetched_logs[i].assigned_user%> assigned by
+                            <%=fetched_logs[i].assigned_by_user%> to the
+                            <%=fetched_logs[i].assigned_to_userGroup%> at
+                            <%=fetched_logs[i].timestamp%> .
+                            </span>
+                            <br>
+                            <%}%>
+                            <%}%>
+                </div>
+            </div>
+        </div>
+
+        <%- include('../common/footer') %>
+            <script src="/js/addUser.js"></script>
+            <%- include('../common/fscript') %>
+</body>
+
+</html>

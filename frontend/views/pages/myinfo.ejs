@@ -1,0 +1,138 @@
+<!Doctype html>
+
+<head>
+    <%- include('../common/cdn') %>
+        <title>My Info</title>
+        <link rel="stylesheet" href="/css/sidebar.css">
+        <link rel="stylesheet" href="/css/style.css">
+        <link rel="stylesheet" href="/css/myinfo.css">
+        <link rel="stylesheet" href="/css/footer.css">
+</head>
+
+<body>
+    <%- include('../common/header') %>
+        <div class="container rounded bg-white mt-5 mb-5" id="maindiv">
+            <div class="row">
+                <div class="col-md-4 border-right">
+                    <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img
+                            class="rounded-circle mt-5" width="150px" src="/images/teams.png"><span
+                            class="font-weight-bold">
+                            <% if(userinfo.cn){ %>
+                                <td>
+                                    <%= userinfo.cn %>
+                                </td>
+                                <% }else {%>
+                                    <td>Not found</td>
+                                    <% } %>
+                        </span><span class="text-black-50"></span><span>
+                            <% if(userinfo.mail){ %>
+                                <td>
+                                    <%= userinfo.mail %>
+                                </td>
+                                <% }else {%>
+                                    <td>Not found</td>
+                                    <% } %>
+                        </span></div>
+                </div>
+
+                <div class="col-md-8 border-right">
+                    <div class="p-3 py-5">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <h4 class="text-right">My Profile Card</h4>
+                        </div>
+                        <div class="row mt-2">
+                            <table>
+
+                                <tr>
+                                    <th scope="row">S.No.</th>
+                                    <th>Attributes</th>
+                                    <th>Information</th>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">1.</th>
+                                    <th>Display Name</th>
+                                    <% if(userinfo.cn){ %>
+                                        <td>
+                                            <%= userinfo.cn %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">2.</th>
+
+                                    <th>Telephone Number</th>
+                                    <% if(userinfo.telephoneNumber){ %>
+                                        <td>
+                                            <%= userinfo.telephoneNumber %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">3.</th>
+
+                                    <th>Login user Name</th>
+                                    <% if(userinfo.sAMAccountName){ %>
+                                        <td>
+                                            <%= userinfo.sAMAccountName %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">4.</th>
+
+                                    <th>AD user Principal Name</th>
+                                    <% if(userinfo.userPrincipalName){ %>
+                                        <td>
+                                            <%= userinfo.userPrincipalName %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">5.</th>
+                                    <th>Mail</th>
+                                    <% if(userinfo.mail){ %>
+                                        <td>
+                                            <%= userinfo.mail %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>Null</td>
+                                            <% } %>
+                                </tr>
+
+                                <tr>
+                                    <th scope="row">6.</th>
+                                    <th>Last Login</th>
+                                    <% if(userLogon){ %>
+                                        <td>
+                                            <%= userLogon %>
+                                        </td>
+                                        <% }else {%>
+                                            <td>not found</td>
+                                            <% } %>
+                                </tr>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <%- include('../common/footer') %>
+
+            <%- include('../common/fscript') %>
+</body>
+
+</html>

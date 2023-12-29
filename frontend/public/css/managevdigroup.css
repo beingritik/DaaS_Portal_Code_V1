@@ -1,0 +1,116 @@
+
+.shadow {
+    box-shadow: 5px 5px 10px 2px rgba(0,0,0,.8);
+    padding: 5%;
+  }
+
+.formClass{
+height: 70%;
+width: 50%;
+margin: auto;
+top: 10%;
+position: relative;
+}
+
+
+.tableHeading{
+    color: #126baf;
+}
+/* border:0.3px solid #000;
+ */
+
+ .infoButton {
+  background-color: #2b96e7; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+} 
+.infoButton:hover{
+  background-color: #126baf; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition:0.2s;
+}
+
+ .revokeButton{
+  background-color: #fcc93d; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+ }
+ .revokeButton:hover{
+  background-color:#f8aa0f; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition:0.2s;
+ }
+ .assignButton{
+  background-color:hsl(114.3, 67.6%, 51.6%);; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+ }
+ .assignButton:hover{
+  background-color: green; /* Green */
+  border: none;
+  color: white;
+  padding: 7px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  transition:0.2s;
+ }
+
+ table thead{
+  background-color: #F6F8FA;
+ }
+
+
+
+ .name_attribute{
+    padding-left:25px!important;
+    font-weight:1000;
+    font-size: 19px;
+ }
+
+ .team_attribute{
+  padding-left:23px!important;
+  font-weight:1000;
+  font-size: 19px;
+ }
+ 
+ .assign_attribute{
+  padding-left:28px!important;
+  font-weight:1000;
+  font-size: 19px;
+}
+
+.revoke_attribute{
+   padding-left:28px!important;
+   font-weight:1000;
+   font-size: 19px;
+}
+
+.footer_padding{
+  margin-top:355px;
+}
+
+
+
